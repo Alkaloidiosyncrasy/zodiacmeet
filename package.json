@@ -1,11 +1,11 @@
 {
-  "name": "astromeet",
+  "name": "zodiacmeet",
   "version": "1.0.0",
   "description": "",
-  "main": "astromeet.js",
+  "main": "zodiacmeet.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node astromeet.js"
+    "start": "node zodiacmeet.js"
   },
   "author": "Alkaloid",
   "license": "ISC",

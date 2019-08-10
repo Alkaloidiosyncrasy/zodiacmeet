@@ -9,8 +9,8 @@ methodOverride = require("method-override"),
 flash          = require("connect-flash"),
 User           = require("./models/user"),
 Profile        = require("./models/profile"),
-Comment        = require("./models/comment");
-//seedDB         = require("./seeds.js");
+Comment        = require("./models/comment"),
+seedDB         = require("./seeds.js");
 
 // REQUIRING ROUTES
 var indexRoutes  = require("./routes/index"),
@@ -25,7 +25,7 @@ commentRoutes    = require("./routes/comments");
 // mongoose.connect("mongodb://localhost/yelp_camp", { useMongoClient: true });
 
 // CONNECTING TO mLab (MONGODB HOSTING SITE)
-//mongoose.connect("mongodb://Alkaloid:diolakla@ds111804.mlab.com:11804/ayelpcamp", { useMongoClient: true });
+mongoose.connect("mongodb://Alkaloid:diolakla@ds111804.mlab.com:11804/ayelpcamp", { useMongoClient: true });
 
 // APP MIDDLEWARE SETUP
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -35,7 +35,7 @@ app.use(flash());
 app.set("view engine", "ejs");
 
 // SEED THE DB
-// seedDB();
+seedDB();
 
 // PASSPORT CONFIGURATION
 app.use(require("express-session")({
