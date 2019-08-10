@@ -1,6 +1,6 @@
 // DEPENDENCIES
 var mongoose = require("mongoose");
-var Campground = require("./models/campground");
+var Campground = require("./models/profile");
 var Comment = require("./models/comment");
 
 // SETTING THE SEED DATA
@@ -19,13 +19,13 @@ var data = [
 
 // SEED FUNCTION
 function seedDB() {
-    // remove all campgrounds
+    // remove all profiles
     Campground.remove({}, function (err) {
         if (err) {
             console.log(err);
         } else {
-            console.log("removed campgrounds!");
-            // add a few campgrounds
+            console.log("removed profiles!");
+            // add a few profiles
             data.forEach(function (seed) {
                 Campground.create(seed, function (err, campground) {
                     if (err) {

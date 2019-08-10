@@ -4,6 +4,7 @@ router      = express.Router(),
 passport    = require("passport"),
 User        = require("../models/user");
 
+
 // ROOT ROUTE
 router.get("/", function (req, res) {
     res.render("landing");
@@ -24,8 +25,8 @@ router.post("/register", function(req, res){
             return res.redirect("register");
         }
         passport.authenticate("local")(req, res, function(){
-            req.flash("success", "Welcome to CampConnect " + user.username);
-            res.redirect("/campgrounds")
+            req.flash("success", "Welcome to AstroMeet " + user.username);
+            res.redirect("/profiles")
         });
     });
 });
@@ -38,7 +39,7 @@ router.get("/login", function(req, res){
 // HANDLING LOGIN LOGIC
 router.post("/login", passport.authenticate("local", 
     {
-        successRedirect: "/campgrounds",
+        successRedirect: "/profiles",
         failureRedirect: "/login"
     }), function(req, res){
         
@@ -48,7 +49,7 @@ router.post("/login", passport.authenticate("local",
 router.get("/logout", function(req, res){
     req.logout();
     req.flash("success", "Logged you out.");
-    res.redirect("/campgrounds");
+    res.redirect("/profiles");
 });
 
 // EXPORTS

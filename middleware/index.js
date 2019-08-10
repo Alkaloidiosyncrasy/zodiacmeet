@@ -1,20 +1,20 @@
 // DEPENDENCIES
-var Campground = require("../models/campground"),
+var Profile    = require("../models/profile"),
 Comment        = require("../models/comment");
 
 // MIDDLEWARE OBJECT
 var middlewareObj = {};
 
-// checkCampgroundOwnership MIDDLEWARE
-middlewareObj.checkCampgroundOwnership = function (req, res, next) {
+// checkProfileOwnership MIDDLEWARE
+middlewareObj.checkProfileOwnership = function (req, res, next) {
     if (req.isAuthenticated()) {
-        Campground.findById(req.params.id, function (err, foundCampground) {
+        Profile.findById(req.params.id, function (err, foundProfile) {
             if (err) {
-                req.flash("error", "Campground not found.");
+                req.flash("error", "Profile not found.");
                 res.redirect("back");
             } else {
                 //does user own the campground?
-                if (foundCampground.author.id.equals(req.user._id)) {
+                if (foundProfile.author.id.equals(req.user._id)) {
                     next();
                 } else {
                     req.flash("error", "You don't have permission to do that.");
@@ -26,7 +26,7 @@ middlewareObj.checkCampgroundOwnership = function (req, res, next) {
         req.flash("error", "You need to be logged in to do that.");
         res.redirect("back");
     }
-}
+};
 
 // checkCommentOwnership MIDDLEWARE
 middlewareObj.checkCommentOwnership = function (req, res, next) {
@@ -48,7 +48,7 @@ middlewareObj.checkCommentOwnership = function (req, res, next) {
         req.flash("error", "You need to be logged in to do that.");
         res.redirect("back");
     }
-}
+};
 
 // isLoggedIn MIDDLEWARE
 middlewareObj.isLoggedIn = function(req, res, next){
@@ -57,7 +57,7 @@ middlewareObj.isLoggedIn = function(req, res, next){
     }
     req.flash("error", "You need to be logged in to do that.");
     res.redirect("/login");
-}
+};
 
 // EXPORTS
-module.exports = middlewareObj
+module.exports = middlewareObj;
