@@ -64,17 +64,17 @@ app.use("/profiles", profileRoutes);
 app.use("/profiles/:id/comments", commentRoutes);
 
 //SETTING THE PORT
-//app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 5000));
 
 // AVOIDING HEROKU $PORT ERROR
-/*app.get('/', function(request, response) {
+app.get('/', function(request, response) {
     var result = 'App is running'
     response.send(result);
 }).listen(app.get('port'), function() {
     console.log('App is running, server is listening on port ', app.get('port'));
-});*/
+});
 
 //STARTING THE APP ON A LOCAL SERVER
-app.listen(3000, function () {
+/* app.listen(3000, function () {
     console.log("ZodiacMeet server has started!");
-});
+}); */
