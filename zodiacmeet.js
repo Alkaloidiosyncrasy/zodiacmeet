@@ -64,7 +64,9 @@ app.use("/profiles", profileRoutes);
 app.use("/profiles/:id/comments", commentRoutes);
 
 //SETTING THE PORT
-app.set('port', (process.env.PORT || 5000));
+//app.set('port', (process.env.PORT || 5000));
+server.listen(process.env.PORT || port)
+
 
 // AVOIDING HEROKU $PORT ERROR
 app.get('/', function(request, response) {
