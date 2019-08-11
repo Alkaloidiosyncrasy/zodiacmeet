@@ -2,26 +2,39 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
                 <p class="lead"><%=profile.name%></p>
                 <div class="list-group">
                     <li class="list-group-item active"><a id="overview" href="/profiles/<%= profile._id %>">Overview</a></li>
                 </div>
-            </div>
-            <div class="col-md-9">
-                <div class="thumbnail">
-                    <img class="img-responsive" src="<%= profile.image %>">
-                    <div class="caption-full">
-                        <h4 class="pull-right">$<%= profile.age %></h4>
-                        <h4>
-                            <%=profile.name%>
-                        </h4>
-                        <p>
-                            <%= profile.description %>
-                        </p>
-                        <p>
-                            <em>Submitted by <%= profile.author.username %> </em>
-                        </p>
+        </div>
+
+         <div class="thumbnail">
+            <img src="<%= profile.image %>">
+                <div class="caption-full">
+                    <h4>
+                        <%= profile.name %>
+                    </h4>
+                    <h3>
+                        <%= profile.day %>
+                    </h3>
+                    <h3>
+                        <%= profile.month %>
+                    </h3>
+                    <h3>
+                        <%= profile.year %>
+                    </h3>
+                    <h3>
+                        <%= profile.time %>
+                    </h3>
+                    <h3>
+                        <%= profile.place %>
+                    </h3>
+                    <p>
+                        <%= profile.description %>
+                    </p>
+                    <p>
+                        <em>Submitted by <%= profile.author.username %> </em>
+                    </p>
                         <% if(currentUser && profile.author.id.equals(currentUser._id)){ %>
                             <a class="btn btn-warning" href="/profiles/<%= profile._id %>/edit">Edit</a>
                             <form class="delete-form" action="/profiles/<%= profile._id %>?_method=DELETE" method="POST">

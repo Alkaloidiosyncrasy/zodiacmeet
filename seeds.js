@@ -25,28 +25,6 @@ function seedDB() {
             console.log(err);
         } else {
             console.log("removed profiles!");
-            // add a few profiles
-            data.forEach(function (seed) {
-                Profile.create(seed, function (err, profile) {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        console.log("added a profile.");
-                        // add a few comments
-                        Comment.create({ text: "This place is great.", author: "Homer" }, function (err, comment) {
-                            if (err) {
-                                console.log(err);
-                            } else {
-                                profile.comments.push(comment);
-                                profile.save();
-                                console.log("added a comment.");
-                            }
-
-                        });
-                    }
-                });
-            });
-
         }
     });
 }

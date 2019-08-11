@@ -5,20 +5,37 @@
         <h1 style="text-align: center">Edit <%= profile.name %></h1>
         <div style="width: 30%; margin: 50px auto;">
             <form action="/profiles/<%= profile._id %>?_method=PUT" method="POST">
-                <div class="form-group">
-                    <input class="form-control" type="text" name="profile[name]" value="<%= profile.name %>">
-                </div>
                 
                 <div class="form-group">
-                    <input class="form-control" type="number" name="profile[age]" value="<%= profile.age %>">
+                    <input id="form-name" type="text" name="profile[name]" value="<%= profile.name %>">
+                </div>
+    
+                <div class="form-group">
+                    <input class="birth" type="number" name="profile[day]" value="<%= profile.day %>">
                 </div>
 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="profile[image]" value="<%= profile.image %>">
+                    <input class="birth" type="number" name="profile[month]" value="<%= profile.month %>">
                 </div>
 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="profile[description]" value="<%= profile.description %>">
+                    <input class="birth" type="number" name="profile[year]" value="<%= profile.year %>">
+                </div>
+
+                <div class="form-group">
+                    <input class="birth" type="datetime" name="profile[time]" value="<%= profile.time %>">
+                </div>
+
+                <div class="form-group">
+                    <input id="form-place" type="text" name="profile[place]" value="<%= profile.place %>">
+                </div>
+
+                <div class="form-group">
+                    <input id="form-image" type="text" name="profile[image]" value="<%= profile.image %>">
+                </div>
+
+                <div class="form-group">
+                    <input id="form-description" type="text" name="profle[description]" value="<%= profile.description %>">
                 </div>
                 
                 <div class="form-group">

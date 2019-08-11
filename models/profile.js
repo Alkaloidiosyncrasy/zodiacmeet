@@ -4,7 +4,11 @@ var mongoose = require("mongoose");
 // SCHEMA SETUP
 var profileSchema = new mongoose.Schema({
     name: String,
-    age: Number,
+    day: Number,
+    month: Number,
+    year: Number,
+    time: Number,
+    place: String,
     image: String,
     description: String,
     author: {

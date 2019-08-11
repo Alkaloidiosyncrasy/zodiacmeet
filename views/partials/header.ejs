@@ -3,8 +3,75 @@
 
 <head>
     <title>ZodiacMeet</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/stylesheets/main.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style type="text/css">
+        
+        body {
+        background-image: url('https://images.pexels.com/photos/1624881/pexels-photo-1624881.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+        }
+        
+        h1,h2,h3,h4,h5,h6,p,a {
+            color:white;
+        } 
+
+        a {
+            text-decoration: none;
+        }
+
+        .authentification {
+            margin-top:-20px;
+            margin-left: 1270px;
+        }
+    
+        .info {
+            background-image: linear-gradient(to bottom right,rgb(43,55,139,0.7), rgb(156,171,230,0.8));
+            /* background-color: rgb(43,55,139,0.7); */
+            border:1px solid white;
+            text-align: center;
+            margin-top:100px;
+            margin-bottom:100px;
+            margin-left:300px;
+            margin-right: 300px;
+            padding-bottom: 50px;
+            border-radius: 50%;
+        }
+
+        #signup {
+            margin-right: -10px;
+            margin-left: 10px;
+        }
+
+        .logged{
+            margin-top:-20px;
+            margin-left: 1150px;
+        }
+
+        #logout {
+            margin-right: -10px;
+            margin-left: 10px;
+        }
+
+        .form-group {
+            text-align: center;
+        }
+
+        .birth {
+            width:170px;
+        }
+
+        #goback {
+            padding-left: 180px;
+        }
+
+        #back {
+            padding-top:40px;
+        }
+
+        .btn {
+            width:190px;
+        }
+    </style>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 
@@ -12,18 +79,20 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/profiles">ZodiacMeet</a>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <% if(!currentUser){ %>
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/register">Sign Up</a></li>
-                        <% } else { %>
-                            <li><a href="#">Signed In As <%= currentUser.username %> </a></li>
-                            <li><a href="/logout">Logout</a></li>
-                    <% } %>
-                </ul>
+                <a class="navbar-brand" href="/profiles"><i class="material-icons">star</i>ZodiacMeet</a>
+                <% if(!currentUser){ %>
+                    <div class="authentification">
+                        <a href="/login">Login   </a>
+                        <a id="signup" href="/register">Sign Up</a>
+                    </div>
+                    <% } else { %>
+                        <div class="logged">
+                            <a id="sidnedas" href="#">Signed In As <%= currentUser.username %> </a>
+                            <a id="logout" href="/logout">Logout</a>
+                            
+                        </div>
+                        
+                <% } %>   
             </div>
         </div>
     </nav>

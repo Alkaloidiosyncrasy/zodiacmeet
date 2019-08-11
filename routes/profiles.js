@@ -42,7 +42,7 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
 
 // NEW - SHOW FORM TO CREATE A NEW PROFILE
 router.get("/new", middleware.isLoggedIn, function (req, res) {
-    res.render("profile/new.ejs");
+    res.render("profiles/new.ejs");
 });
 
 //SHOW - SHOWS MORE INFO ABOUT ONE PROFILE
